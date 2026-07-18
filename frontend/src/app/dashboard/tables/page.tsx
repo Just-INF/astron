@@ -188,7 +188,7 @@ export default function TablesPage() {
             {unlinkedCount > 0 && (
               <p className="tables-link-note">
                 {unlinkedCount} table{unlinkedCount > 1 ? "s" : ""} on the floor plan{" "}
-                {unlinkedCount > 1 ? "aren't" : "isn't"} linked yet — select it in the editor and
+                {unlinkedCount > 1 ? "aren't" : "isn't"} linked yet - select it in the editor and
                 press “Link”.
               </p>
             )}
@@ -422,7 +422,7 @@ function TableCard({
         ) : (
           <div className="table-qr-skeleton" />
         )}
-        <code className="table-code">{table.code ?? "—"}</code>
+        <code className="table-code">{table.code ?? "-"}</code>
       </div>
 
       {requests.length > 0 && (

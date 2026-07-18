@@ -5685,7 +5685,7 @@ button {
   }
 }
 
-/* Landing page — Fable-inspired visual system */
+/* Landing page - Fable-inspired visual system */
 .fable-page {
   --ink: #191a52;
   --paper: #fff9e8;
@@ -8739,7 +8739,6 @@ button {
   .saas-intro-inner > div {
     display: flex;
   }
-
 }
 @media (max-width: 640px) {
   .visual-axis {
@@ -9037,6 +9036,94 @@ button {
   min-height: 100vh;
   color: #edf3ff;
   background: radial-gradient(circle at 82% 8%, rgba(102, 135, 229, 0.2), transparent 25%), #090d18;
+  scroll-behavior: smooth;
+}
+
+.cookie-consent {
+  position: fixed;
+  z-index: 1000;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  display: grid;
+  width: min(760px, calc(100% - 48px));
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: end;
+  margin-left: auto;
+  border: 1px solid rgba(194, 211, 246, 0.28);
+  border-radius: 10px;
+  padding: 24px;
+  background: rgba(10, 15, 27, 0.97);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.48);
+  color: #edf3ff;
+  backdrop-filter: blur(18px);
+}
+.cookie-consent-label {
+  margin: 0 0 8px !important;
+  color: #9ee1c3 !important;
+  font-size: 10px !important;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+.cookie-consent h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  letter-spacing: -0.025em;
+}
+.cookie-consent p {
+  max-width: 540px;
+  margin: 0;
+  color: #aebbd0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.cookie-consent a {
+  color: #c7d9ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cookie-consent-actions {
+  display: flex;
+  gap: 9px;
+}
+.cookie-consent button {
+  min-width: 92px;
+  border-radius: 6px;
+  padding: 11px 16px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.cookie-consent-decline {
+  border: 1px solid rgba(194, 211, 246, 0.25);
+  background: transparent;
+  color: #c4cee0;
+}
+.cookie-consent-accept {
+  border: 1px solid #9ee1c3;
+  background: #9ee1c3;
+  color: #0a1714;
+}
+.cookie-consent button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+@media (max-width: 680px) {
+  .cookie-consent {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    width: calc(100% - 24px);
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px;
+  }
+  .cookie-consent-actions,
+  .cookie-consent button {
+    width: 100%;
+  }
 }
 .legal-header {
   display: flex;
@@ -9052,12 +9139,58 @@ button {
 .legal-header > a:last-child {
   color: #c8d7fb;
 }
-.legal-content {
-  width: min(760px, calc(100% - 56px));
-  padding: 130px 0 160px;
+.legal-layout {
+  display: grid;
+  width: min(1180px, calc(100% - 56px));
+  grid-template-columns: 220px minmax(0, 760px);
+  gap: clamp(56px, 8vw, 120px);
+  align-items: start;
+  padding: 112px 0 160px;
   margin: 0 auto;
 }
-.legal-content > p:first-child {
+.legal-toc {
+  position: sticky;
+  top: 32px;
+  max-height: calc(100vh - 64px);
+  overflow: auto;
+}
+.legal-toc > span {
+  display: block;
+  margin-bottom: 18px;
+  color: #9ee1c3;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.legal-toc nav {
+  display: grid;
+}
+.legal-toc a {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 8px;
+  border-top: 1px solid rgba(219, 228, 247, 0.12);
+  padding: 10px 0;
+  color: #9faec5;
+  font-size: 12px;
+  line-height: 1.35;
+}
+.legal-toc a:hover {
+  color: #edf3ff;
+}
+.legal-toc small {
+  color: #687790;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+.legal-content {
+  min-width: 0;
+}
+.legal-intro {
+  padding-bottom: 58px;
+}
+.legal-intro > p:first-child {
   margin: 0;
   color: #9ee1c3;
   font-size: 12px;
@@ -9078,17 +9211,24 @@ button {
   font-size: 17px;
   line-height: 1.6;
 }
+.legal-effective {
+  margin: 22px 0 0;
+  color: #7f8da4;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
 .legal-notice {
-  margin-top: 54px;
+  margin: 0 0 72px;
   border: 1px solid rgba(157, 180, 235, 0.32);
   border-radius: 7px;
   padding: 26px;
   background: rgba(17, 25, 41, 0.85);
 }
-.legal-notice h2 {
+.legal-notice strong {
+  display: block;
   margin: 0 0 10px;
   color: #edf3ff;
-  font-size: 18px;
+  font-size: 14px;
 }
 .legal-notice p {
   max-width: 580px;
@@ -9097,17 +9237,136 @@ button {
   font-size: 14px;
   line-height: 1.65;
 }
+.legal-sections > section {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 12px;
+  border-top: 1px solid rgba(219, 228, 247, 0.18);
+  padding: 58px 0 62px;
+  scroll-margin-top: 24px;
+}
+.legal-section-number {
+  padding-top: 5px;
+  color: #71809a;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.legal-sections h2 {
+  margin: 0 0 22px;
+  color: #f4f7ff;
+  font-size: clamp(24px, 4vw, 32px);
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+.legal-sections p,
+.legal-sections li {
+  color: #b9c5da;
+  font-size: 15px;
+  line-height: 1.75;
+}
+.legal-sections p {
+  margin: 0 0 17px;
+}
+.legal-sections p:last-child,
+.legal-sections ul:last-child {
+  margin-bottom: 0;
+}
+.legal-sections ul {
+  margin: 0 0 20px;
+  padding-left: 20px;
+}
+.legal-sections li + li {
+  margin-top: 7px;
+}
+.legal-sections a,
+.legal-document-footer a {
+  color: #b7d0ff;
+  text-decoration: underline;
+  text-decoration-color: rgba(183, 208, 255, 0.35);
+  text-underline-offset: 3px;
+}
+.legal-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(219, 228, 247, 0.16);
+  border-radius: 7px;
+}
+.legal-table-wrap table {
+  width: 100%;
+  min-width: 590px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.legal-table-wrap th,
+.legal-table-wrap td {
+  border-bottom: 1px solid rgba(219, 228, 247, 0.12);
+  padding: 14px 16px;
+  vertical-align: top;
+  color: #b9c5da;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.legal-table-wrap th {
+  color: #edf3ff;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.legal-table-wrap tr:last-child td {
+  border-bottom: 0;
+}
+.legal-table-wrap code {
+  color: #dbe6ff;
+  font-size: 11px;
+}
+.legal-document-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px 24px;
+  border-top: 1px solid rgba(219, 228, 247, 0.18);
+  padding-top: 36px;
+  color: #8d9bb1;
+  font-size: 12px;
+}
+.legal-document-footer p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #9ee1c3;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.legal-document-footer div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+}
 @media (max-width: 640px) {
   .legal-header {
     width: calc(100% - 32px);
     height: 70px;
   }
-  .legal-content {
+  .legal-layout {
+    display: block;
     width: calc(100% - 32px);
-    padding: 88px 0;
+    padding: 76px 0 96px;
+  }
+  .legal-toc {
+    display: none;
+  }
+  .legal-content h1 {
+    font-size: 48px;
   }
   .legal-notice {
     padding: 20px;
+  }
+  .legal-sections > section {
+    grid-template-columns: 28px minmax(0, 1fr);
+    padding: 44px 0 48px;
+  }
+  .legal-document-footer {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -10410,7 +10669,7 @@ body * {
   }
 }
 
-/* Authentication finishing pass — concise, secure, and effortless to scan. */
+/* Authentication finishing pass - concise, secure, and effortless to scan. */
 .auth-header-status {
   color: #a9bdd8;
 }
@@ -10757,7 +11016,7 @@ body * {
   }
 }
 
-/* Primary actions use a single, calm product color—not decorative color blends. */
+/* Primary actions use a single, calm product color-not decorative color blends. */
 .button-primary,
 .wizard-actions .button-primary,
 .completion-panel .button-primary {
@@ -10791,7 +11050,7 @@ body * {
     inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
-/* Dashboard — the same composed navy / periwinkle / mint language as the landing page. */
+/* Dashboard - the same composed navy / periwinkle / mint language as the landing page. */
 .dashboard-frame {
   --saas-blue: #8aa9ff;
   --saas-mint: #9ee1c3;
@@ -11362,7 +11621,7 @@ body * {
   color: #e8eefb;
 }
 
-/* Floor-plan object inspector — a docked property rail. */
+/* Floor-plan object inspector - a docked property rail. */
 .layout-studio-shell {
   display: block;
 }
@@ -15766,7 +16025,7 @@ body * {
   stroke: rgba(6, 12, 22, 0.82);
   stroke-width: 0.05px;
 }
-/* Wall edit nodes — visible, clearly draggable handles */
+/* Wall edit nodes - visible, clearly draggable handles */
 .floor-wall-node-group {
   cursor: grab;
 }
@@ -15796,7 +16055,7 @@ body * {
   filter: drop-shadow(0 0 0.08px rgba(158, 225, 195, 0.95));
 }
 
-/* Zone edit nodes — match the wall node language */
+/* Zone edit nodes - match the wall node language */
 .floor-zone-node-group {
   cursor: grab;
 }
@@ -15826,7 +16085,7 @@ body * {
   filter: drop-shadow(0 0 0.08px rgba(158, 225, 195, 0.95));
 }
 
-/* Segment insert affordance — tap between two nodes to add one */
+/* Segment insert affordance - tap between two nodes to add one */
 .floor-seg-add {
   fill: none;
   stroke: transparent;
@@ -15845,7 +16104,7 @@ body * {
   pointer-events: none;
 }
 
-/* Walls — crisp bright core with a soft luminous halo (replaces the heavy dark casing) */
+/* Walls - crisp bright core with a soft luminous halo (replaces the heavy dark casing) */
 .floor-wall-casing {
   fill: none;
   stroke: rgba(150, 185, 255, 0.22);
@@ -15903,7 +16162,7 @@ body * {
   stroke-width: 1.2;
 }
 
-/* Zoom / fit controls — floating glass cluster */
+/* Zoom / fit controls - floating glass cluster */
 .floor-zoom-controls {
   position: absolute;
   right: 14px;
@@ -16081,7 +16340,7 @@ body * {
   accent-color: #9ee1c3;
 }
 
-/* Toolbox — refined into a premium, grouped tool rail that matches the inspector. */
+/* Toolbox - refined into a premium, grouped tool rail that matches the inspector. */
 .layout-toolbox {
   display: flex;
   flex-direction: column;
@@ -17685,7 +17944,7 @@ body * {
 }
 
 /* The table/wall inspector is now a docked right rail (≥1024px) or a floating card
-   (901–1023px) inside .layout-studio-shell — see the floor-plan inspector styles. */
+   (901–1023px) inside .layout-studio-shell - see the floor-plan inspector styles. */
 
 /* Guest category switching keeps long menus fast to browse. */
 .public-menu-category-nav {
@@ -17839,7 +18098,8 @@ body * {
 }
 
 /* Account fields match the compact, dark gradient surface in restaurant settings. */
-.settings-form-card .auth-field input {
+.settings-form-card .auth-field input,
+.security-card .auth-field input {
   height: 46px;
   padding: 0 12px;
   border-color: rgba(157, 180, 235, 0.22);
@@ -17848,14 +18108,28 @@ body * {
   background: linear-gradient(135deg, rgba(5, 12, 24, 0.68), rgba(14, 27, 45, 0.58));
   font-size: 12px;
 }
-.settings-form-card .auth-field input:hover {
+.settings-form-card .auth-field input:hover,
+.security-card .auth-field input:hover {
   border-color: rgba(169, 193, 245, 0.43);
   background: linear-gradient(135deg, rgba(7, 15, 28, 0.86), rgba(15, 30, 50, 0.72));
 }
-.settings-form-card .auth-field input:focus {
+.settings-form-card .auth-field input:focus,
+.security-card .auth-field input:focus {
   border-color: #8aa9ff;
   box-shadow: 0 0 0 3px rgba(138, 169, 255, 0.16);
   background: linear-gradient(135deg, rgba(5, 12, 24, 0.68), rgba(14, 27, 45, 0.58));
+}
+.security-card .auth-field {
+  margin-top: 15px;
+}
+.security-card .auth-field > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #b9c7da;
+}
+.security-card .auth-field > span svg {
+  color: #7f95b5;
 }
 
 /* Nora: a clear, useful operational workspace in the current SaaS palette. */
@@ -20244,7 +20518,7 @@ body * {
   letter-spacing: 0.08em;
 }
 
-/* Themed month calendar (public reservation page) — mirrors the studio calendar */
+/* Themed month calendar (public reservation page) - mirrors the studio calendar */
 .res-fp-calendar {
   border: 1px solid color-mix(in srgb, var(--res-text) 14%, transparent);
   border-radius: 12px;
@@ -20515,7 +20789,7 @@ body * {
   height: 100%;
 }
 
-/* Expanded (maximized) floor-plan modal — themed via --res-* vars */
+/* Expanded (maximized) floor-plan modal - themed via --res-* vars */
 .res-fp-max-overlay {
   position: fixed;
   inset: 0;
@@ -21756,7 +22030,7 @@ body * {
   }
 }
 
-/* Reservation studio — scheduling-first layout */
+/* Reservation studio - scheduling-first layout */
 .reservation-board-header {
   display: flex;
   align-items: end;
@@ -22019,7 +22293,7 @@ body * {
   background: rgba(158, 225, 195, 0.045);
 }
 
-/* Reservation settings — policy and availability are separate working areas */
+/* Reservation settings - policy and availability are separate working areas */
 .reservation-settings-layout {
   display: grid;
   grid-template-columns: minmax(280px, 0.72fr) minmax(420px, 1.28fr);

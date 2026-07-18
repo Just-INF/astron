@@ -648,7 +648,7 @@ export function PublicReservation({
           {isClosed ? (
             <div className="public-reservation-closed">
               <CalendarX2 size={22} />
-              <p>Closed on this day — pick another date above.</p>
+              <p>Closed on this day - pick another date above.</p>
             </div>
           ) : created ? (
             <div className="res-confirmation" role="status">

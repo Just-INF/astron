@@ -91,7 +91,7 @@ export function FloorPlanThemeEditor({ theme, onUpdate, onPublish }: FloorPlanTh
           <small>
             {theme.isPublished
               ? `Version ${theme.version} live · ${new Date(theme.updatedAt).toLocaleString()}`
-              : "Draft only — not visible to guests."}
+              : "Draft only - not visible to guests."}
           </small>
           <button type="button" className="button button-primary" onClick={onPublish}>
             {theme.isPublished ? "Publish changes" : "Publish floor plan"}

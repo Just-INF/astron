@@ -113,7 +113,7 @@ export function useRestaurantRealtime(restaurantId: string | null) {
         socket = null;
         clearHeartbeat();
         // Stop reconnecting if the handshake was rejected (402, 401, etc.)
-        // or we've exhausted retries — the server won't accept us.
+        // or we've exhausted retries - the server won't accept us.
         if (stopped || !navigator.onLine || (!didOpen && retry >= 3)) return;
         const delay = Math.min(30_000, 750 * 2 ** Math.min(retry, 5));
         retry += 1;

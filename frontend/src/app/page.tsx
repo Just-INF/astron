@@ -1,12 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Bot,
-  Layers3,
-  MenuSquare,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, Bot, Layers3, MenuSquare, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Pricing } from "@/components/marketing/Pricing";
 import { ScrollReveal } from "@/components/marketing/ScrollReveal";
@@ -26,7 +19,7 @@ const products = [
   {
     number: "02",
     title: "Menus without the margin for error",
-    copy: "Publish, update, and govern every menu from one source of truth—across every location.",
+    copy: "Publish, update, and govern every menu from one source of truth-across every location.",
     icon: MenuSquare,
     accent: "violet",
   },
@@ -330,7 +323,7 @@ export default function Home() {
             >
               <div className="quote-mark">✦</div>
               <blockquote>
-                See the product with your own service model—not a manufactured success story.
+                See the product with your own service model-not a manufactured success story.
               </blockquote>
               <div className="quote-attribution">
                 <p>
@@ -356,7 +349,7 @@ export default function Home() {
               <em>service. Scale.</em>
             </h2>
             <p>
-              Simple plans for individual restaurants and multi-site groups—without the enterprise
+              Simple plans for individual restaurants and multi-site groups-without the enterprise
               theatre.
             </p>
             <a href="mailto:hello@astron.com">

@@ -354,6 +354,7 @@ authRoutes.post("/change-password", requireAuth, async (c) => {
   return c.body(null, 204);
 });
 
+
 export const meRoutes = new Hono<{ Variables: AppVariables }>();
 meRoutes.get("/", async (c) => {
   const user = await authenticatedUserForToken(getCookie(c, config.SESSION_COOKIE_NAME));

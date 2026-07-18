@@ -865,7 +865,7 @@ export default function ReservationsStudio() {
 
                 {settings.is24_7 ? (
                   <p className="res-hours-note">
-                    Always open — guests can book any minute, every day.
+                    Always open - guests can book any minute, every day.
                   </p>
                 ) : (
                   <div className="reservation-hours-table">

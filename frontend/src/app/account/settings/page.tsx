@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { Check, Mail, ShieldCheck, UserRound } from "lucide-react";
+import { Check, KeyRound, LockKeyhole, Mail, ShieldCheck, UserRound } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { DashboardPanel } from "@/components/dashboard/EmptyState";
@@ -104,7 +104,9 @@ export default function AccountSettingsPage() {
           <h2>Change password</h2>
           <p>Changing your password closes every other signed-in session.</p>
           <label className="auth-field">
-            <span>Current password</span>
+            <span>
+              <KeyRound size={13} /> Current password
+            </span>
             <input
               name="currentPassword"
               type="password"
@@ -113,11 +115,15 @@ export default function AccountSettingsPage() {
             />
           </label>
           <label className="auth-field">
-            <span>New password</span>
+            <span>
+              <LockKeyhole size={13} /> New password
+            </span>
             <input name="newPassword" type="password" autoComplete="new-password" required />
           </label>
           <label className="auth-field">
-            <span>Confirm new password</span>
+            <span>
+              <Check size={13} /> Confirm new password
+            </span>
             <input name="confirmPassword" type="password" autoComplete="new-password" required />
           </label>
           {passwordError && (

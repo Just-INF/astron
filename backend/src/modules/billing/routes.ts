@@ -223,7 +223,7 @@ billingRoutes.get("/subscription", async (c) => {
           message: error instanceof Error ? error.message : "Unknown error",
         }),
       );
-      // Fall through — treat as no subscription rather than crashing the endpoint
+      // Fall through - treat as no subscription rather than crashing the endpoint
     }
   }
   const entitlements = await entitlementsForUser(user.id);

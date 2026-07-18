@@ -188,9 +188,13 @@ export default function BillingPage() {
                     onClick={handleResume}
                   >
                     {resuming ? (
-                      <><LoaderCircle className="spin" size={15} /> Resuming</>
+                      <>
+                        <LoaderCircle className="spin" size={15} /> Resuming
+                      </>
                     ) : (
-                      <><RotateCcw size={14} /> Resume subscription</>
+                      <>
+                        <RotateCcw size={14} /> Resume subscription
+                      </>
                     )}
                   </button>
                 ) : !confirmCancel ? (
@@ -202,9 +206,13 @@ export default function BillingPage() {
                       onClick={() => setShowPlans(true)}
                     >
                       {changingPlan ? (
-                        <><LoaderCircle className="spin" size={15} /> Changing plan</>
+                        <>
+                          <LoaderCircle className="spin" size={15} /> Changing plan
+                        </>
                       ) : (
-                        <><ArrowUpDown size={14} /> Change plan</>
+                        <>
+                          <ArrowUpDown size={14} /> Change plan
+                        </>
                       )}
                     </button>
                     <button
@@ -225,7 +233,9 @@ export default function BillingPage() {
                       onClick={handleCancel}
                     >
                       {cancelling ? (
-                        <><LoaderCircle className="spin" size={15} /> Cancelling</>
+                        <>
+                          <LoaderCircle className="spin" size={15} /> Cancelling
+                        </>
                       ) : (
                         "Yes, cancel"
                       )}
@@ -264,7 +274,7 @@ export default function BillingPage() {
               </div>
               <div>
                 <dt>Renews</dt>
-                <dd>{current?.renewsAt ? new Date(current.renewsAt).toLocaleDateString() : "—"}</dd>
+                <dd>{current?.renewsAt ? new Date(current.renewsAt).toLocaleDateString() : "-"}</dd>
               </div>
               {current?.endsAt && (
                 <div>
@@ -294,7 +304,15 @@ export default function BillingPage() {
       <PlanPickerModal
         open={showPlans}
         availability={availability}
-        workingPlan={subscribed ? changingPlan ? (current.plan === "free" ? "house" : current.plan) : null : workingPlan}
+        workingPlan={
+          subscribed
+            ? changingPlan
+              ? current.plan === "free"
+                ? "house"
+                : current.plan
+              : null
+            : workingPlan
+        }
         onClose={() => !workingPlan && !changingPlan && setShowPlans(false)}
         onChoose={(plan) => void choosePlan(plan)}
       />

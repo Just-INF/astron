@@ -146,10 +146,8 @@ export const api = {
       method: "POST",
       body: JSON.stringify({ plan }),
     }),
-  billingCancel: () =>
-    apiRequest<{ accepted: boolean }>("/api/billing/cancel", { method: "POST" }),
-  billingResume: () =>
-    apiRequest<{ accepted: boolean }>("/api/billing/resume", { method: "POST" }),
+  billingCancel: () => apiRequest<{ accepted: boolean }>("/api/billing/cancel", { method: "POST" }),
+  billingResume: () => apiRequest<{ accepted: boolean }>("/api/billing/resume", { method: "POST" }),
   billingChangePlan: (plan: BillingPlanId) =>
     apiRequest<{ accepted: boolean }>("/api/billing/change-plan", {
       method: "POST",

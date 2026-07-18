@@ -182,7 +182,7 @@ export function ProductDialog({
               <b>{images.length >= MAX_IMAGES ? "Image limit reached" : "Drop images here"}</b>
               <span>
                 {images.length >= MAX_IMAGES
-                  ? "5/5 — remove one to add more"
+                  ? "5/5 - remove one to add more"
                   : "JPG, PNG or WebP · max 5 MB each"}
               </span>
               {images.length < MAX_IMAGES && (

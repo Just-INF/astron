@@ -128,12 +128,12 @@ export default function DashboardPage() {
           <div className="engagement-hero">
             <div>
               <small>Top dish covers</small>
-              <b>—</b>
+              <b>-</b>
               <p>Available after service begins</p>
             </div>
             <div>
               <small>Menu-attributed revenue</small>
-              <b>—</b>
+              <b>-</b>
               <p>Waiting for transactions</p>
             </div>
           </div>

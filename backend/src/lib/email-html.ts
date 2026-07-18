@@ -23,8 +23,7 @@ function renderLine(line: string): string {
 </tr>`;
   }
   const trimmed = line.trim();
-  if (trimmed === "\u2014" || trimmed === "" || trimmed.startsWith("Astron \u00b7"))
-    return "";
+  if (trimmed === "\u2014" || trimmed === "" || trimmed.startsWith("Astron \u00b7")) return "";
   return `<tr>
 <td style="padding:4px 0;color:#cbd5e7;font-size:14px;line-height:1.6;">${escapeHtml(trimmed)}</td>
 </tr>`;

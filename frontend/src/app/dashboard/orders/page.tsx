@@ -481,7 +481,7 @@ function OrderCheck({
           </div>
         </dl>
         <p className="order-check-note">
-          This check can be presented or printed at any time—no guest request is required.
+          This check can be presented or printed at any time-no guest request is required.
         </p>
         <footer>
           <button className="button" type="button" onClick={() => window.print()}>

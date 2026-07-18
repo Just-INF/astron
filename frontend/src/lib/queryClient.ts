@@ -6,7 +6,7 @@ export const queryClient = new QueryClient({
     queries: {
       staleTime: 10_000,
       retry: (failureCount, error) => {
-        // Don't retry client errors — they are deterministic (401, 402, 403, 404, 422)
+        // Don't retry client errors - they are deterministic (401, 402, 403, 404, 422)
         if (error instanceof ApiError && error.status >= 400 && error.status < 500) return false;
         return failureCount < 1;
       },

@@ -116,7 +116,7 @@ export function McpSettings() {
           </div>
           {newToken && (
             <div>
-              <dt>New key — copy it now; it will not be shown again</dt>
+              <dt>New key - copy it now; it will not be shown again</dt>
               <dd>
                 <code>{newToken}</code>
                 <button onClick={() => void copy(newToken)} aria-label="Copy MCP key">

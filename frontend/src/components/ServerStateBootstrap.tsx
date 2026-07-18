@@ -85,7 +85,8 @@ export function ServerStateBootstrap() {
               entranceAnimationPreset: "fade" as const,
               animationSpeed: "normal" as const,
               pageTitle: "Your table is waiting.",
-              pageSubtitle: "Choose a time, find the table that feels right, and we’ll take care of the rest.",
+              pageSubtitle:
+                "Choose a time, find the table that feels right, and we’ll take care of the rest.",
               showFloorPlan: true,
               layoutVariant: "guided" as const,
               stepIndicator: "numbered" as const,

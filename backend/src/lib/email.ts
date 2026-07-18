@@ -15,7 +15,7 @@ type ReservationDetails = {
   partySize: number;
   startAt?: Date;
 };
-const branded = (body: string) => `${body}\n\n—\nAstron · Restaurant service, clearly coordinated.`;
+const branded = (body: string) => `${body}\n\n-\nAstron · Restaurant service, clearly coordinated.`;
 
 function transport() {
   if (!config.SMTP_HOST || !config.SMTP_USER || !config.SMTP_PASS || !config.SMTP_FROM) return null;
@@ -34,7 +34,13 @@ async function deliver(to: string, subject: string, text: string) {
     console.info(`[email disabled] ${subject} → ${to}`);
     return;
   }
-  await client.sendMail({ from: config.SMTP_FROM, to, subject, text, html: renderHtml(subject, text) });
+  await client.sendMail({
+    from: config.SMTP_FROM,
+    to,
+    subject,
+    text,
+    html: renderHtml(subject, text),
+  });
 }
 
 async function send(to: string, subject: string, text: string) {
@@ -126,7 +132,7 @@ export const sendReservationConfirmation = (guestEmail: string, details: Reserva
     db.insert(emailJobs).values({
       id: createId("email"),
       to: guestEmail,
-      subject: `Reservation confirmed — ${details.restaurantName}`,
+      subject: `Reservation confirmed - ${details.restaurantName}`,
       text: branded(
         `Hi ${details.guestName}, your table for ${details.partySize} is confirmed at ${details.restaurantName} on ${details.date} at ${details.startTime}.`,
       ),
@@ -138,7 +144,7 @@ export const sendReservationConfirmation = (guestEmail: string, details: Reserva
           db.insert(emailJobs).values({
             id: createId("email"),
             to: guestEmail,
-            subject: `Your reservation is coming up — ${details.restaurantName}`,
+            subject: `Your reservation is coming up - ${details.restaurantName}`,
             text: branded(
               `Hi ${details.guestName}, this is a reminder for your table for ${details.partySize} at ${details.restaurantName} on ${details.date} at ${details.startTime}.`,
             ),
@@ -163,7 +169,7 @@ export async function sendReservationCancellation(guestEmail: string, details: R
     await tx.insert(emailJobs).values({
       id: createId("email"),
       to: guestEmail,
-      subject: `Reservation cancelled — ${details.restaurantName}`,
+      subject: `Reservation cancelled - ${details.restaurantName}`,
       text: branded(
         `Hi ${details.guestName}, your reservation at ${details.restaurantName} on ${details.date} at ${details.startTime} has been cancelled.`,
       ),
@@ -186,7 +192,7 @@ export async function sendReservationRescheduled(guestEmail: string, details: Re
     await tx.insert(emailJobs).values({
       id: createId("email"),
       to: guestEmail,
-      subject: `Reservation updated — ${details.restaurantName}`,
+      subject: `Reservation updated - ${details.restaurantName}`,
       text: branded(
         `Hi ${details.guestName}, your reservation for ${details.partySize} at ${details.restaurantName} has moved to ${details.date} at ${details.startTime}.`,
       ),
@@ -197,7 +203,7 @@ export async function sendReservationRescheduled(guestEmail: string, details: Re
       await tx.insert(emailJobs).values({
         id: createId("email"),
         to: guestEmail,
-        subject: `Your reservation is coming up — ${details.restaurantName}`,
+        subject: `Your reservation is coming up - ${details.restaurantName}`,
         text: branded(
           `Hi ${details.guestName}, this is a reminder for your table for ${details.partySize} at ${details.restaurantName} on ${details.date} at ${details.startTime}.`,
         ),
@@ -213,7 +219,7 @@ export const sendServiceRequestNotification = (
 ) =>
   send(
     email,
-    `Service request ${details.status} — ${details.restaurantName}`,
+    `Service request ${details.status} - ${details.restaurantName}`,
     `${details.type} at ${details.tableName} is now ${details.status}.`,
   );
 export const sendPasswordReset = (email: string, token: string) =>

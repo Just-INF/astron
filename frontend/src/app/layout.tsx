@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { CookieConsent } from "@/components/CookieConsent";
 
 export default function RootLayout() {
   return (
@@ -9,6 +10,7 @@ export default function RootLayout() {
       <div id="main-content" tabIndex={-1}>
         <Outlet />
       </div>
+      <CookieConsent />
     </>
   );
 }

@@ -23,7 +23,7 @@ export function currencyOptions(language = "en"): RegionalOption[] {
     const name = names.of(currency) ?? currency;
     return {
       value: currency,
-      label: `${currency} — ${name}${symbol && symbol !== currency ? ` (${symbol})` : ""}`,
+      label: `${currency} - ${name}${symbol && symbol !== currency ? ` (${symbol})` : ""}`,
     };
   });
 }
