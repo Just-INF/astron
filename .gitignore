@@ -1,0 +1,28 @@
+# Dependencies and build output
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+coverage/
+
+# Local configuration and runtime data
+.env
+.env.*
+!.env.example
+backend/.data/
+backend/files/*
+!backend/files/.gitkeep
+*.log
+*.tsbuildinfo
+
+# Local export archive
+frontend.rar
+
+# Local visual QA artifacts
+frontend/.playwright-mcp/
+frontend/vite.err
+frontend/layout-editor-fix.png
+
+# Docs
+docs/
+olddocs/

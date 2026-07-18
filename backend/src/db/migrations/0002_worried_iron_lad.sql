@@ -1,0 +1,4 @@
+ALTER TABLE "order_items" ADD CONSTRAINT "order_items_quantity_positive" CHECK ("order_items"."quantity" > 0);--> statement-breakpoint
+ALTER TABLE "order_items" ADD CONSTRAINT "order_items_money_nonnegative" CHECK ("order_items"."unit_price_minor" >= 0 and "order_items"."tax_minor" >= 0 and "order_items"."total_minor" >= 0);--> statement-breakpoint
+ALTER TABLE "orders" ADD CONSTRAINT "orders_totals_nonnegative" CHECK ("orders"."subtotal_minor" >= 0 and "orders"."tax_minor" >= 0 and "orders"."total_minor" >= 0);--> statement-breakpoint
+ALTER TABLE "service_requests" ADD CONSTRAINT "service_requests_payment_method_check" CHECK (("service_requests"."type" = 'check' and "service_requests"."payment_method" is not null) or ("service_requests"."type" = 'waiter_call' and "service_requests"."payment_method" is null));
