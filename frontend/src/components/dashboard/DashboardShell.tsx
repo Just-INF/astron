@@ -135,7 +135,7 @@ export function DashboardShell({ children }: Readonly<{ children: ReactNode }>) 
             })}
         </nav>
         <div className="sidebar-bottom">
-          <Link className="all-restaurants-link" to="/account">
+          <Link className="all-restaurants-link" to="/account" aria-label="All restaurants">
             <span>
               <Building2 size={15} />
             </span>

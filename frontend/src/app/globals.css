@@ -25500,3 +25500,148 @@ body * {
     font-size: clamp(40px, 13vw, 50px);
   }
 }
+
+/* Application-wide mobile guardrails: compact navigation, readable headings, and reachable actions. */
+@media (max-width: 850px) {
+  .dashboard-frame .dashboard-sidebar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    overflow: visible;
+    padding: 12px 16px 10px;
+  }
+  .dashboard-frame .dashboard-wordmark {
+    min-width: 0;
+    margin: 0;
+  }
+  .dashboard-frame .account-context,
+  .dashboard-frame .sidebar-section-label {
+    display: none;
+  }
+  .dashboard-frame .dashboard-sidebar nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    padding: 0 0 2px;
+  }
+  .dashboard-frame .sidebar-bottom {
+    display: flex;
+    grid-column: 2;
+    grid-row: 1;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+  }
+  .dashboard-frame .all-restaurants-link,
+  .dashboard-frame .sidebar-bottom button {
+    display: grid;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+    place-items: center;
+    margin: 0;
+    border: 1px solid rgba(157, 180, 235, 0.2);
+    border-radius: 8px;
+    padding: 0;
+    color: #b8c7dd;
+    background: rgba(15, 24, 40, 0.78);
+    font-size: 0;
+  }
+  .dashboard-frame .all-restaurants-link > span:first-child {
+    width: auto;
+    height: auto;
+    background: transparent;
+  }
+  .dashboard-frame .all-restaurants-link > span:last-child {
+    display: none;
+  }
+  .dashboard-frame .sidebar-bottom button svg {
+    width: 17px;
+    height: 17px;
+  }
+  .dashboard-frame .dashboard-topbar p {
+    min-width: 0;
+    overflow: hidden;
+  }
+  .dashboard-frame .dashboard-topbar p b {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dashboard-route,
+  .dashboard-content,
+  .menu-studio-redesign,
+  .modern-settings-layout,
+  .reservation-settings-layout,
+  .layout-studio-shell,
+  .orders-dashboard,
+  .analytics-dashboard,
+  .account-module {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .dashboard-content {
+    padding: 38px 16px 60px;
+  }
+  .dashboard-page-heading h1,
+  .module-page-heading h1,
+  .menu-page-header h1,
+  .layout-page-header h1,
+  .analytics-heading h1,
+  .orders-page-heading h1,
+  .restaurant-settings-heading h1,
+  .account-page-heading h1,
+  .restaurant-overview-heading h1 {
+    max-width: 100%;
+    font-size: clamp(36px, 12vw, 46px);
+    line-height: 0.98;
+    overflow-wrap: anywhere;
+  }
+  .dashboard-frame .dashboard-topbar {
+    gap: 10px;
+    padding-inline: 12px;
+  }
+  .dashboard-frame .dashboard-topbar > div {
+    flex: 0 0 auto;
+    gap: 6px;
+  }
+  .dashboard-frame .user-chip {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    padding: 0;
+  }
+  .glass-modal-footer,
+  .wizard-actions,
+  .publish-actions,
+  .settings-form-card footer,
+  .settings-save-bar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .glass-modal-footer .button,
+  .wizard-actions .button,
+  .publish-actions .button,
+  .settings-form-card footer .button,
+  .settings-save-bar .button {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+  .legal-table-wrap,
+  .invoice-table,
+  .team-table,
+  .orders-tabs,
+  .settings-section-nav {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+}
