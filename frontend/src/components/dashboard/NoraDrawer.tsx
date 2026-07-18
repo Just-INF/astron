@@ -260,7 +260,6 @@ export function NoraDrawer() {
     hydrateConversation = useNoraStore((state) => state.hydrateConversation);
   const addMessage = useNoraStore((state) => state.addMessage),
     appendMessage = useNoraStore((state) => state.appendMessage),
-    resetMessage = useNoraStore((state) => state.resetMessage),
     finishMessage = useNoraStore((state) => state.finishMessage),
     touchSession = useNoraStore((state) => state.touchSession),
     removeSession = useNoraStore((state) => state.removeSession);
@@ -414,8 +413,7 @@ export function NoraDrawer() {
         else if (streamEvent.type === "delta") {
           setActivity(null);
           appendMessage(conversationId, assistantId, streamEvent.delta);
-        } else if (streamEvent.type === "reset") resetMessage(conversationId, assistantId);
-        else if (streamEvent.type === "done") {
+        } else if (streamEvent.type === "done") {
           setActivity(null);
           finishMessage(
             conversationId,

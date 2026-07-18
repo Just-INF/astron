@@ -22,7 +22,6 @@ type NoraActions = {
   hydrateConversation: (conversationId: string, messages: NoraMessage[]) => void;
   addMessage: (conversationId: string, message: NoraMessage) => void;
   appendMessage: (conversationId: string, messageId: string, delta: string) => void;
-  resetMessage: (conversationId: string, messageId: string) => void;
   finishMessage: (
     conversationId: string,
     messageId: string,
@@ -70,15 +69,6 @@ export const useNoraStore = create<NoraState & NoraActions>()((set) => ({
         ...state.messages,
         [conversationId]: (state.messages[conversationId] ?? []).map((message) =>
           message.id === messageId ? { ...message, content: message.content + delta } : message,
-        ),
-      },
-    })),
-  resetMessage: (conversationId, messageId) =>
-    set((state) => ({
-      messages: {
-        ...state.messages,
-        [conversationId]: (state.messages[conversationId] ?? []).map((message) =>
-          message.id === messageId ? { ...message, content: "" } : message,
         ),
       },
     })),

@@ -280,11 +280,12 @@ noraRoutes.post("/chat", async (c) => {
       output.write(`${JSON.stringify({ type, ...data })}\n`);
     let createdProposalCount = 0,
       answer = "I could not complete that request. Please try again.";
-    const assistantId = createId("msg");
+    let assistantId = createId("msg");
     await write("session", { conversationId });
-    await write("assistant_start", { id: assistantId, createdAt: new Date().toISOString() });
     try {
       for (let round = 0; round < 6; round++) {
+        assistantId = createId("msg");
+        await write("assistant_start", { id: assistantId, createdAt: new Date().toISOString() });
         await write("activity", {
           label: round === 0 ? "Thinking through your request" : "Composing the answer",
         });
@@ -294,7 +295,6 @@ noraRoutes.post("/chat", async (c) => {
         if (!completion.toolCalls.length) {
           const candidate = completion.content.trim() || answer;
           if (contradictsToolCatalog(candidate) && round < 5) {
-            await write("reset");
             await write("activity", { label: "Checking current capabilities" });
             messages.push({ role: "assistant", content: candidate });
             messages.push({
@@ -307,7 +307,6 @@ noraRoutes.post("/chat", async (c) => {
           answer = candidate;
           break;
         }
-        await write("reset");
         messages.push({
           role: "assistant",
           content: completion.content || null,
