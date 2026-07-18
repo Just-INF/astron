@@ -22,7 +22,7 @@ const sections: LegalSection[] = [
     id: "technologies",
     title: "Technologies Astron uses",
     content: (
-      <div className="legal-table-wrap">
+      <div className="legal-table-wrap" tabIndex={0} aria-label="Cookies and browser storage used by Astron">
         <table>
           <thead><tr><th>Name</th><th>Type and provider</th><th>Purpose</th><th>Duration</th></tr></thead>
           <tbody>

@@ -45,7 +45,7 @@ const sections: LegalSection[] = [
     id: "purposes-bases",
     title: "Why we use data and our legal bases",
     content: (
-      <div className="legal-table-wrap">
+      <div className="legal-table-wrap" tabIndex={0} aria-label="Data processing purposes and legal bases">
         <table>
           <thead><tr><th>Purpose</th><th>Typical legal basis</th></tr></thead>
           <tbody>

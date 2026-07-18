@@ -37,3 +37,15 @@ test("forgot-password flow accepts a valid address", async ({ page }) => {
   await page.getByRole("button", { name: /prepare recovery link/i }).click();
   await expect(page.getByText("Check your inbox.")).toBeVisible();
 });
+
+test("landing page stays usable at a narrow mobile width", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("/");
+  await expect(page.getByRole("link", { name: "Sign in" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Run every service with clarity." })).toBeVisible();
+  const dimensions = await page.evaluate(() => ({
+    viewport: document.documentElement.clientWidth,
+    content: document.documentElement.scrollWidth,
+  }));
+  expect(dimensions.content).toBeLessThanOrEqual(dimensions.viewport);
+});
