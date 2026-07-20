@@ -73,16 +73,19 @@ app.notFound((c) =>
   ),
 );
 app.get("/health/live", (c) => c.json({ status: "ok", service: "astron-api" }));
+
 app.get("/health/ready", async (c) => {
   await db.execute("select 1");
   await pingRateLimitStore();
   return c.json({ status: "ok", database: "reachable", rateLimitStore: "reachable" });
 });
+
 app.get("/health", (c) => c.redirect("/health/ready", 307));
 app.use("/api/auth/*", rateLimit("auth", 12, 15 * 60_000));
 app.use("/api/public/*", rateLimit("public-write", 40, 60_000));
 app.use("/api/restaurants/:restaurantId/nora/*", rateLimit("nora", 20, 60_000));
 app.use("/mcp", rateLimit("mcp", 120, 60_000));
+
 app.use("/api/restaurants/:restaurantId/*", async (c, next) => {
   const restaurantId = c.req.param("restaurantId")!;
   await requireRestaurantSubscription(restaurantId);
@@ -90,6 +93,7 @@ app.use("/api/restaurants/:restaurantId/*", async (c, next) => {
   if (c.res.status < 400)
     publishRestaurantEvent(restaurantId, realtimeDomainsForMutation(c.req.path, c.req.method));
 });
+
 app.use("/api/public/restaurants/:restaurantId/*", async (c, next) => {
   const restaurantId = c.req.param("restaurantId")!;
   await requireRestaurantSubscription(restaurantId);
@@ -97,6 +101,7 @@ app.use("/api/public/restaurants/:restaurantId/*", async (c, next) => {
   if (c.res.status < 400)
     publishRestaurantEvent(restaurantId, realtimeDomainsForMutation(c.req.path, c.req.method));
 });
+
 app.route("/api/auth", authRoutes);
 app.route("/api/billing", billingRoutes);
 app.route("/api/me", meRoutes);

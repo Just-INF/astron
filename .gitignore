@@ -23,6 +23,14 @@ frontend/.playwright-mcp/
 frontend/vite.err
 frontend/layout-editor-fix.png
 
-# Docs
-docs/
-olddocs/
+# Generated/legacy docs are ignored, but the maintained Markdown reference is versioned.
+docs/*
+!docs/reference/
+!docs/reference/**
+# The rebuilt static documentation website is source-controlled.
+olddocs/*
+!olddocs/build.mjs
+!olddocs/index.html
+!olddocs/*.html
+!olddocs/assets/
+!olddocs/assets/**
